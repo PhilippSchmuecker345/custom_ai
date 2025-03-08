@@ -17,6 +17,8 @@ services:
       - ./wordpress/wp-content:/var/www/html/wp-content
     depends_on:
       - db
+    networks:
+      - custom_ai_ollama_network
 
   db:
     image: mysql:5.7
@@ -27,6 +29,8 @@ services:
       MYSQL_DATABASE: wordpress
     volumes:
       - db_data:/var/lib/mysql
+    networks:
+      - custom_ai_ollama_network
 
   phpmyadmin:
     image: phpmyadmin/phpmyadmin
@@ -41,8 +45,25 @@ services:
       PMA_PASSWORD: example
     depends_on:
       - db
+    networks:
+      - custom_ai_ollama_network
+
+      # Automatisches Downloaden von Models (llama3:8b)
+  ollama:
+    image: ollama/ollama:latest
+    container_name: ollama
+    ports:
+      - "8090:11434"  # Ollama API auf Port 5000
+    volumes:
+      - ollama_data:/data
+    networks:
+      - custom_ai_ollama_network
 
 volumes:
   wordpress_data:
   db_data:
+  ollama_data:
 
+networks:
+  custom_ai_ollama_network:
+    driver: bridge

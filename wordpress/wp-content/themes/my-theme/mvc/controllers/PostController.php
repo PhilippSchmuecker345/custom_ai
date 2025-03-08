@@ -1,22 +1,33 @@
 <?php
 class PostController {
-    private $model;
-    private $view;
 
-    public function __construct() {
-        $this->model = new PostModel();
-        $this->view = new PostView();
+    public function handleRequest() {
+        // Überprüfe, ob eine Aktion übergeben wurde
+        if (isset($_GET['action']) && $_GET['action'] == 'show_ollama_response') {
+            $userMessage = isset($_GET['message']) ? $_GET['message'] : 'Hallo!';
+            
+            // Instanziiere das Ollama Model
+            $ollamaModel = new OllamaModel();
+            $ollamaResponse = $ollamaModel->getResponseFromOllama($userMessage); // Korrektur: getResponseFromOllama()
+
+            // Antwort als JSON ausgeben (für den AJAX-Request)
+            header('Content-Type: application/json');
+            echo json_encode(['response' => $ollamaResponse]);
+            exit;
+        } else {
+            // Standardansicht anzeigen
+            $this->displayPosts();
+        }
     }
 
     public function displayPosts() {
-        $posts = $this->model->getPosts();
-        $this->view->renderPosts($posts);
+        // Hier könntest du echte Beiträge abrufen und anzeigen
+        echo "<p>Hier sollten die Beiträge angezeigt werden.</p>";
     }
 
-    public function displaySinglePost($post_id) {
-        $post = $this->model->getPostById($post_id);
-        $this->view->renderSinglePost($post);
+    private function renderView($view, $data) {
+        // Lade die View-Datei und übergebe die Daten
+        include plugin_dir_path(__FILE__) . 'views/' . $view . '.php';
     }
 }
-?>
 

@@ -48,6 +48,20 @@ Falls du auch Datenvolumes entfernen möchtest:
 docker-compose down -v
 ```
 
+## Ollama Model installieren
+1. **Ollama Model installieren**
+   Als erstes müssen wir das Ollama Model installieren. Dafür müssen wir in den Container wechseln.
+   ```sh
+   docker-compose exec ollama bash
+   ```
+2. **Ollama Model installieren**
+   ```sh
+   ollama run llama3:8b
+    ```
+3. **Container wieder verlassen**
+    ```sh
+    /exit
+    ```
 ## Hinweise für Windows-Nutzer
 Falls du Probleme mit Dateirechten hast, führe Docker im Administrator-Modus aus oder überprüfe die Dateifreigabeeinstellungen in Docker Desktop.
 

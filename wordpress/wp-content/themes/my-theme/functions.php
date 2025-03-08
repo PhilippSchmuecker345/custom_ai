@@ -1,5 +1,5 @@
 <?php
-include_once 'mvc/models/PostModel.php';
+include_once 'mvc/models/OllamaModel.php';
 include_once 'mvc/views/PostView.php';
 include_once 'mvc/controllers/PostController.php';
 
