@@ -17,6 +17,7 @@ services:
       - ./wordpress/wp-content:/var/www/html/wp-content
     depends_on:
       - db
+      - ollama
     networks:
       - custom_ai_ollama_network
 
@@ -48,12 +49,11 @@ services:
     networks:
       - custom_ai_ollama_network
 
-      # Automatisches Downloaden von Models (llama3:8b)
   ollama:
     image: ollama/ollama:latest
     container_name: ollama
     ports:
-      - "8090:11434"  # Ollama API auf Port 5000
+      - "8090:11434"
     volumes:
       - ollama_data:/data
     networks:
@@ -67,3 +67,4 @@ volumes:
 networks:
   custom_ai_ollama_network:
     driver: bridge
+
