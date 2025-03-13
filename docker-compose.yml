@@ -67,3 +67,4 @@ volumes:
 networks:
   custom_ai_ollama_network:
     driver: bridge
+
