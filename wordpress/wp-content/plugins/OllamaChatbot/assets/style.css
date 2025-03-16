@@ -1,0 +1,17 @@
+#ai-chatbox {
+    width: 300px;
+    border: 1px solid #ccc;
+    padding: 10px;
+}
+#chat-messages {
+    height: 200px;
+    overflow-y: auto;
+    margin-bottom: 10px;
+}
+#chat-input {
+    width: 80%;
+}
+#chat-send {
+    width: 18%;
+}
+
