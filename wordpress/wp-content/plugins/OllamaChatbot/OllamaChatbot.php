@@ -4,7 +4,7 @@ Plugin Name: AI Chatbot mit Ollama
 Plugin URI: https://example.com
 Description: Ein WordPress-Chatbot mit LLaMA 3 (Ollama) im Docker-Container.
 Version: 1.0
-Author: Dein Name
+Author: ITB222
 Author URI: https://example.com
 License: GPL2
 */
