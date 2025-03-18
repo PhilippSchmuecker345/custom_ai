@@ -1,3 +1,5 @@
+//Implementiert eine Chatbot-Interaktion, bei der der Benutzer Nachrichten sendet, 
+//der Server darauf antwortet und die Nachrichten im Chatverlauf angezeigt werden.
 jQuery(document).ready(function($) {
     $('#chat-send').click(function() {
         let message = $('#chat-input').val();

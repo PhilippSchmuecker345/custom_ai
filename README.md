@@ -62,6 +62,15 @@ docker-compose down -v
     ```sh
     /exit
     ```
+## Chatbot starten
+1. Im linken Menüfenster Plugins auswählen und dort den Ollama-Chatbot Aktivieren.
+
+2. jetzt können Sie auf jeder beliebigen Seite mit dem Shortcut
+```sh
+    [ai_chatbot]
+```
+den Chatbot aufrufen.
+
 ## Hinweise für Windows-Nutzer
 Falls du Probleme mit Dateirechten hast, führe Docker im Administrator-Modus aus oder überprüfe die Dateifreigabeeinstellungen in Docker Desktop.
 
